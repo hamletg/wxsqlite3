@@ -6,7 +6,6 @@
     <wxRootDir>$(WXWIN)</wxRootDir>
     <wxShortVersionString>31</wxShortVersionString>
     <wxToolkitPrefix>msw</wxToolkitPrefix>
-    <wxCompilerPrefix>vc</wxCompilerPrefix>
     <wxFlavour></wxFlavour>
     <!-- Use following definition to include wxWidgets platform information in library name
     <wxFlavour>_$(wxToolkitPrefix)$(wxShortVersionString)u</wxFlavour>
@@ -21,6 +20,26 @@
     -->
     <!-- Set wxMsvcVersionAuto to any non-empty value, if the compiler-specific prefix should be determined automatically -->
     <wxMsvcVersionAuto></wxMsvcVersionAuto>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(VisualStudioVersion)'=='10.0'">
+    <wxCompilerPrefix>vc10</wxCompilerPrefix>
+    <wxMsvcVersion>10</wxMsvcVersion>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(VisualStudioVersion)'=='11.0'">
+    <wxCompilerPrefix>vc11</wxCompilerPrefix>
+    <wxMsvcVersion>11</wxMsvcVersion>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(VisualStudioVersion)'=='12.0'">
+    <wxCompilerPrefix>vc12</wxCompilerPrefix>
+    <wxMsvcVersion>12</wxMsvcVersion>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(VisualStudioVersion)'=='14.0'">
+    <wxCompilerPrefix>vc14</wxCompilerPrefix>
+    <wxMsvcVersion>14</wxMsvcVersion>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(VisualStudioVersion)'=='15.0'">
+    <wxCompilerPrefix>vc15</wxCompilerPrefix>
+    <wxMsvcVersion>15</wxMsvcVersion>
   </PropertyGroup>
   <PropertyGroup Label="UserMacros" Condition="'$(Platform)'=='Win32'">
     <wxArchSuffix>
@@ -123,6 +142,9 @@
     </BuildMacro>
     <BuildMacro Include="wxCompilerPrefix">
       <Value>$(wxCompilerPrefix)</Value>
+    </BuildMacro>
+    <BuildMacro Include="wxCompilerVersionSuffix">
+      <Value></Value>
     </BuildMacro>
     <BuildMacro Include="wxCfg">
       <Value>$(wxCfg)</Value>
